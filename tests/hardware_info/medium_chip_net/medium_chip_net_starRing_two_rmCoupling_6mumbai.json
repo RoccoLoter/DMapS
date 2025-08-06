@@ -1,0 +1,131 @@
+{
+    "has multiple chips": true,
+    "chips": {
+        "chip 0": {
+            "use calibration file": true,
+            "calibration file path": "/tests/hardware_info/calibration_data/ibmq_mumbai_calibrations_2023-07-09T06_41_50Z.csv"
+        },
+        "chip 1": {
+            "use calibration file": true,
+            "calibration file path": "/tests/hardware_info/calibration_data/ibmq_mumbai_calibrations_2023-07-09T06_41_50Z.csv"
+        },
+        "chip 2": {
+            "use calibration file": true,
+            "calibration file path": "/tests/hardware_info/calibration_data/ibmq_mumbai_calibrations_2023-07-09T06_41_50Z.csv"
+        },
+        "chip 3": {
+            "use calibration file": true,
+            "calibration file path": "/tests/hardware_info/calibration_data/ibmq_mumbai_calibrations_2023-07-09T06_41_50Z.csv"
+        },
+        "chip 4": {
+            "use calibration file": true,
+            "calibration file path": "/tests/hardware_info/calibration_data/ibmq_mumbai_calibrations_2023-07-09T06_41_50Z.csv"
+        },
+        "chip 5": {
+            "use calibration file": true,
+            "calibration file path": "/tests/hardware_info/calibration_data/ibmq_mumbai_calibrations_2023-07-09T06_41_50Z.csv"
+        }
+    },
+    "remote connection": [
+        {
+            "chip 0": "Q0",
+            "chip 1": "Q6",
+            "fidelity": 0.8
+        },
+        {
+            "chip 0": "Q3",
+            "chip 1": "Q17",
+            "fidelity": 0.85
+        },
+        {
+            "chip 0": "Q9",
+            "chip 5": "Q6",
+            "fidelity": 0.8
+        },
+        {
+            "chip 0": "Q20",
+            "chip 5": "Q12",
+            "fidelity": 0.85
+        },
+        {
+            "chip 1": "Q3",
+            "chip 2": "Q0",
+            "fidelity": 0.8
+        },
+        {
+            "chip 1": "Q9",
+            "chip 2": "Q6",
+            "fidelity": 0.85
+        },
+        {
+            "chip 1": "Q26",
+            "chip 5": "Q0",
+            "fidelity": 0.8
+        },
+        {
+            "chip 1": "Q20",
+            "chip 5": "Q3",
+            "fidelity": 0.85
+        },
+        {
+            "chip 2": "Q26",
+            "chip 3": "Q2",
+            "fidelity": 0.85
+        },
+        {
+            "chip 2": "Q20",
+            "chip 3": "Q9",
+            "fidelity": 0.85
+        },
+        {
+            "chip 2": "Q17",
+            "chip 5": "Q9",
+            "fidelity": 0.85
+        },
+        {
+            "chip 2": "Q23",
+            "chip 5": "Q14",
+            "fidelity": 0.8
+        },
+        {
+            "chip 3": "Q17",
+            "chip 4": "Q20",
+            "fidelity": 0.85
+        },
+        {
+            "chip 3": "Q26",
+            "chip 4": "Q26",
+            "fidelity": 0.85
+        },
+        {
+            "chip 3": "Q0",
+            "chip 5": "Q20",
+            "fidelity": 0.85
+        },
+        {
+            "chip 3": "Q6",
+            "chip 5": "Q26",
+            "fidelity": 0.85
+        },
+        {
+            "chip 4": "Q0",
+            "chip 0": "Q26",
+            "fidelity": 0.80
+        },
+        {
+            "chip 4": "Q6",
+            "chip 0": "Q23",
+            "fidelity": 0.80
+        },
+        {
+            "chip 4": "Q3",
+            "chip 5": "Q17",
+            "fidelity": 0.80
+        },
+        {
+            "chip 4": "Q9",
+            "chip 5": "Q23",
+            "fidelity": 0.85
+        }
+    ]
+}
