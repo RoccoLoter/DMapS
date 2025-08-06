@@ -2,7 +2,7 @@
 **DMapS** is **end-to-end quantum compiler** designed for **near-term distributed quantum computing architectures**, integrating qubit mapping and routing algorithms. These algorithms improve the execution efficiency of compiled quantum programs by optimizing EPR pair overhead and local SWAP gate insertions.
 
 # ⚛️ Logo
-![DMapS Logo](images/dmaps-logo.png)
+![DMapS Logo](DMapS-logo.png)
 
 ## 📦 Installation
 Clone the repository and install required dependencies:
