@@ -1,0 +1,107 @@
+# Copyright 2023 Quantinuum and The University of Tokyo
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+from __future__ import annotations
+
+import networkx as nx  # type: ignore
+
+from typing import TYPE_CHECKING, List, Tuple, Dict
+
+if TYPE_CHECKING:
+    from comparison_algorithms.pytket_dqc.placement.placement import Placement
+
+
+class ServerNetwork:
+    """Class for the management of networks of quantum computers."""
+
+    def __init__(self, server_coupling: List[List[int]]):
+        """Initialisation function.
+
+        :param server_coupling: List of pairs of server indices. Each pair
+            specifies that there is a connection between those two servers.
+        :type server_coupling: List[List[int]]
+        :raises Exception: Raised if internal lists are not a pair.
+        :raises Exception: Raised if the network is unconnected.
+        """
+
+        for server_list in server_coupling:
+            if not len(server_list) == 2:
+                raise Exception("server_coupling should be a list of pairs of servers.")
+
+        self.server_coupling = server_coupling
+
+        # Check that the resulting network is connected.
+        # TODO: We may be able to drop this condition.
+        if not nx.is_connected(self.get_server_nx()):
+            raise Exception("This server network is unconnected.")
+
+    def __eq__(self, other):
+        """Check equality based on equality of components"""
+        if isinstance(other, ServerNetwork):
+            return self.server_coupling == other.server_coupling
+        return False
+
+    def is_placement(self, placement: Placement) -> bool:
+        """Checks that placement is valid for this network. In particular
+        check that all of the servers used by the placement are indeed in
+        this network.
+
+        :param placement: Placement onto network.
+        :type placement: Placement
+        :return: Is placement valid.
+        :rtype: bool
+        """
+
+        valid = True
+
+        # Check that every server vertices are placed onto is in this network.
+        server_list = self.get_server_list()
+        for server in placement.placement.values():
+            if server not in server_list:
+                valid = False
+
+        return valid
+
+    def get_server_list(self) -> List[int]:
+        """Return list of servers.
+
+        :return: List of server indices.
+        :rtype: List[int]
+        """
+
+        # Servers are saved in server_coupling as edges. Extract vertices here.
+        expanded_coupling = [
+            server for coupling in self.server_coupling for server in coupling
+        ]
+        return list(set(expanded_coupling))
+
+    # TODO: This could probably be simplified. I don't know that anyone will
+    # use this function. Could just be combined into draw.
+    def get_server_nx(self) -> nx.Graph:
+        """Return networkx graph of server network.
+
+        :return: networkx graph of server network.
+        :rtype: nx.Graph
+        """
+
+        G = nx.Graph()
+        for edge in self.server_coupling:
+            G.add_edge(edge[0], edge[1])
+        return G
+
+    def draw_server_network(self) -> None:
+        """Draw server network using networkx draw method."""
+
+        G = self.get_server_nx()
+        nx.draw(G, with_labels=True, pos=nx.nx_agraph.graphviz_layout(G))
