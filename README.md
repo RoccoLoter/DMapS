@@ -4,8 +4,8 @@
 ## 📦 Installation
 Clone the repository and install required dependencies:
 ```bash
-git clone https://gitee.com/LTQUBIT/pydmaps.git
-cd pydmaps
+git clone https://github.com/RoccoLoter/DMapS.git
+cd dmaps
 pip install -e .
 ```
 
