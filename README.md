@@ -5,7 +5,7 @@
 Clone the repository and install required dependencies:
 ```bash
 git clone https://github.com/RoccoLoter/DMapS.git
-cd dmaps
+cd DMapS
 pip install -e .
 ```
 
