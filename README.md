@@ -34,3 +34,15 @@ This project is licensed under the Apache 2.0.
 ## 📬 Contact 
 - The code comments are still insufficient, and we will work on improving them.
 - For questions, please contact listenwetnessluo@163.com or open an issue on GitHub.
+
+## ✨ How to Cite the DMapS Paper
+If you consider citing the DMapS paper:
+```bash
+@article{luo2025dmaps,
+  title={DMapS: End-to-end Qubit Mapping and Routing for Distributed Quantum Computing Architectures},
+  author={Luo, Tingyu and Zheng, Yuzhen and Deng, Yuxin and Fu, Xiang},
+  journal={IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems},
+  year={2025},
+  publisher={IEEE}
+}
+```
